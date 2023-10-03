@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstActivity">
+    <Button
+        android:id="@+id/find_city_ID"
+        android:layout_width="150dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/black"
+        android:text="find city ID"
+
+        app:layout_constraintEnd_toStartOf="@id/find_city_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weather_by_name" />
+
+    <Button
+        android:id="@+id/find_city_name"
+        android:layout_width="150dp"
+        android:layout_height="42dp"
+        android:background="@color/black"
+        android:text="find city name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/find_city_ID"
+        app:layout_constraintTop_toTopOf="@+id/find_city_ID" />
+
+    <Button
+        android:id="@+id/weather_by_ID"
+        android:layout_width="150dp"
+        android:layout_height="42dp"
+        android:background="@color/black"
+
+        android:text="weather by ID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/weather_by_name"
+        app:layout_constraintTop_toTopOf="@+id/weather_by_name" />
+
+    <Button
+        android:id="@+id/weather_by_name"
+        android:layout_width="150dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/black"
+        android:text="weather by name"
+        app:layout_constraintEnd_toStartOf="@id/weather_by_ID"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/InputText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:hint="   enter ID, city name or weather"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/find_city_name" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="weather information here : "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InputText" />
+</androidx.constraintlayout.widget.ConstraintLayout>
