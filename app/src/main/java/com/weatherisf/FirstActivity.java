@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class FirstActivity extends AppCompatActivity {
 
     Button cityID, cityName,weatherID,weatherName;
+    EditText InputText;
 
 
     @Override
@@ -20,6 +22,7 @@ public class FirstActivity extends AppCompatActivity {
         cityName=findViewById(R.id.find_city_name);
         weatherID=findViewById(R.id.weather_by_ID);
         weatherName=findViewById(R.id.weather_by_name);
+        InputText=findViewById(R.id.Input_Text);
 
 
 //button method for read cityId from Json
@@ -36,7 +39,7 @@ public class FirstActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //codes of read city name from Json
-                Toast.makeText(FirstActivity.this, "you clicked on " + cityName.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(FirstActivity.this, "you clicked on " + InputText.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
