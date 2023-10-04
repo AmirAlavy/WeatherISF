@@ -6,12 +6,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 public class FirstActivity extends AppCompatActivity {
 
     Button cityID, cityName,weatherID,weatherName;
     EditText InputText;
+    TextView ReeadInfo;
 
 
     @Override
@@ -23,6 +32,7 @@ public class FirstActivity extends AppCompatActivity {
         weatherID=findViewById(R.id.weather_by_ID);
         weatherName=findViewById(R.id.weather_by_name);
         InputText=findViewById(R.id.Input_Text);
+        ReeadInfo=findViewById(R.id.read_Info);
 
 
 //button method for read cityId from Json
@@ -39,7 +49,34 @@ public class FirstActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //codes of read city name from Json
-                Toast.makeText(FirstActivity.this, "you clicked on " + InputText.getText().toString(), Toast.LENGTH_SHORT).show();
+
+
+// Instantiate the RequestQueue.
+                RequestQueue queue = Volley.newRequestQueue(FirstActivity.this);
+                String url = "https://github.com/LearnWebCode/json-example/blob/master/animals-1.json";
+
+// Request a string response from the provided URL.
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                // Display the first 500 characters of the response string.
+
+                                ReeadInfo.setText(response);
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(FirstActivity.this, "error occurred" , Toast.LENGTH_SHORT).show();
+                        ReeadInfo.setText("Response is: " );
+
+                    }
+                });
+
+// Add the request to the RequestQueue.
+                queue.add(stringRequest);
+
+
             }
         });
 
