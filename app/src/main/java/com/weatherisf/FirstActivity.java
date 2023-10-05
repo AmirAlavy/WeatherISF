@@ -53,7 +53,7 @@ public class FirstActivity extends AppCompatActivity {
 
 // Instantiate the RequestQueue.
                 RequestQueue queue = Volley.newRequestQueue(FirstActivity.this);
-                String url = "https://github.com/LearnWebCode/json-example/blob/master/animals-1.json";
+                String url = "https://api.openweathermap.org/data/2.5/forecast?lat=25.761681&lon=-80.191788&appid=5a9b0e546a7ffaec83985026cfd7c183";
 
 // Request a string response from the provided URL.
                 StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -68,7 +68,7 @@ public class FirstActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(FirstActivity.this, "error occurred" , Toast.LENGTH_SHORT).show();
-                        ReeadInfo.setText("Response is: " );
+                        ReeadInfo.setText("Response is get error during request  " );
 
                     }
                 });
