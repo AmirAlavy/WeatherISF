@@ -94,7 +94,7 @@ public class FirstActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //codes of read weather by cityId from Json
-                Toast.makeText(FirstActivity.this, "you clicked on "+weatherName.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(FirstActivity.this, "you clicked on " + weatherName.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
