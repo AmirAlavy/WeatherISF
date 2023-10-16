@@ -21,8 +21,9 @@
         android:id="@+id/find_city_name"
         android:layout_width="150dp"
         android:layout_height="42dp"
-        android:background="@color/black"
+        android:background="@drawable/custom_btn"
         android:text="find city name"
+        app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/find_city_ID"
         app:layout_constraintTop_toTopOf="@+id/find_city_ID" />
@@ -91,10 +92,16 @@
 
             <TextView
                 android:id="@+id/read_Info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="weather information here : "
+                android:layout_marginStart="20dp"
+                android:textIsSelectable="true"
+                android:textAlignment="center"
+
                 />
+
+
         </LinearLayout>
     </ScrollView>
 

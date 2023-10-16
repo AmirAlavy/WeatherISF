@@ -13,8 +13,14 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class FirstActivity extends AppCompatActivity {
 
@@ -51,6 +57,42 @@ public class FirstActivity extends AppCompatActivity {
                 //codes of read city name from Json
 
 
+
+                RequestQueue queue = Volley.newRequestQueue(FirstActivity.this);
+                String url = "https://api.openweathermap.org/data/2.5/forecast?q="+ InputText.getText()  +"&appid=5a9b0e546a7ffaec83985026cfd7c183";
+
+              JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                  @Override
+                  public void onResponse(JSONObject response) {
+                      try {
+                          JSONObject city = response.getJSONObject("city");
+                          String jcinyName = city.getString("name");
+                          String country = city.getString("country");
+                          ReeadInfo.setText(jcinyName.toString()+"\n"+country.toString());
+
+
+
+
+                      } catch (JSONException e) {
+                          Toast.makeText(FirstActivity.this, "the cod is error!", Toast.LENGTH_SHORT).show();
+                      }
+
+
+                  }
+              }, new Response.ErrorListener() {
+                  @Override
+                  public void onErrorResponse(VolleyError error) {
+                      Toast.makeText(FirstActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                  }
+              });
+              queue.add(jsonObjectRequest);
+
+
+
+
+
+/*APIkey tested successful
+
 // Instantiate the RequestQueue.
                 RequestQueue queue = Volley.newRequestQueue(FirstActivity.this);
                 String url = "https://api.openweathermap.org/data/2.5/forecast?lat=25.761681&lon=-80.191788&appid=5a9b0e546a7ffaec83985026cfd7c183";
@@ -76,9 +118,19 @@ public class FirstActivity extends AppCompatActivity {
 // Add the request to the RequestQueue.
                 queue.add(stringRequest);
 
+*/
 
             }
         });
+
+
+
+
+
+
+
+
+
 
 //button method for weather by city
         weatherID.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +149,10 @@ public class FirstActivity extends AppCompatActivity {
                 Toast.makeText(FirstActivity.this, "you clicked on " + weatherName.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
+
 
 }
 }
