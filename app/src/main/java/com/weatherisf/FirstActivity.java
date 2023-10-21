@@ -2,10 +2,16 @@ package com.weatherisf;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AnticipateInterpolator;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,21 +19,22 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import me.tankery.lib.circularseekbar.CircularSeekBar;
 
 public class FirstActivity extends AppCompatActivity {
 
     Button cityID, cityName,weatherID,weatherName;
+    Button axel1,axel2,axel3,axel4;
     EditText InputText;
     TextView ReeadInfo;
-
+    SeekBar seekBar;
+    CircularSeekBar circleSeekBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +46,12 @@ public class FirstActivity extends AppCompatActivity {
         weatherName=findViewById(R.id.weather_by_name);
         InputText=findViewById(R.id.Input_Text);
         ReeadInfo=findViewById(R.id.read_Info);
-
+        circleSeekBar =findViewById(R.id.seekBarr);
+        seekBar=findViewById(R.id.seekBar);
+        axel1=findViewById(R.id.overshootInterpolator);
+        axel2=findViewById(R.id.axel2);
+        axel3=findViewById(R.id.axel3);
+        axel4=findViewById(R.id.axel4);
 
 //button method for read cityId from Json
         cityID.setOnClickListener(new View.OnClickListener() {
@@ -149,6 +161,47 @@ public class FirstActivity extends AppCompatActivity {
                 Toast.makeText(FirstActivity.this, "you clicked on " + weatherName.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
+        ObjectAnimator animee =ObjectAnimator.ofFloat(circleSeekBar,"progress",10,70);
+
+       // animee.setInterpolator(new );
+        animee.setDuration(2000);
+        animee.start();
+
+        axel1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animee.setInterpolator(new OvershootInterpolator());
+                animee.start();
+            }
+        });
+        axel2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animee.setInterpolator(new AccelerateDecelerateInterpolator());
+                animee.start();
+            }
+        });
+
+
+
+        axel3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animee.setInterpolator(new BounceInterpolator());
+                animee.start();
+            }
+        });
+        axel4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animee.setInterpolator(new AnticipateInterpolator());
+                animee.start();
+            }
+        });
+
+
 
 
 
