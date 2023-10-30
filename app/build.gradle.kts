@@ -41,6 +41,8 @@ dependencies {
 
     implementation ("com.android.volley:volley:1.2.1")
     implementation ("me.tankery.lib:circularSeekBar:1.4.2")
+    implementation ("com.airbnb.android:lottie:6.1.0")
+
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

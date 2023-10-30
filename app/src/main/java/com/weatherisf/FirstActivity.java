@@ -2,13 +2,9 @@ package com.weatherisf;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AnticipateInterpolator;
-import android.view.animation.BounceInterpolator;
-import android.view.animation.OvershootInterpolator;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
@@ -46,12 +42,7 @@ public class FirstActivity extends AppCompatActivity {
         weatherName=findViewById(R.id.weather_by_name);
         InputText=findViewById(R.id.Input_Text);
         ReeadInfo=findViewById(R.id.read_Info);
-        circleSeekBar =findViewById(R.id.seekBarr);
-        seekBar=findViewById(R.id.seekBar);
-        axel1=findViewById(R.id.overshootInterpolator);
-        axel2=findViewById(R.id.axel2);
-        axel3=findViewById(R.id.axel3);
-        axel4=findViewById(R.id.axel4);
+
 
 //button method for read cityId from Json
         cityID.setOnClickListener(new View.OnClickListener() {
@@ -102,36 +93,6 @@ public class FirstActivity extends AppCompatActivity {
 
 
 
-
-/*APIkey tested successful
-
-// Instantiate the RequestQueue.
-                RequestQueue queue = Volley.newRequestQueue(FirstActivity.this);
-                String url = "https://api.openweathermap.org/data/2.5/forecast?lat=25.761681&lon=-80.191788&appid=5a9b0e546a7ffaec83985026cfd7c183";
-
-// Request a string response from the provided URL.
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                // Display the first 500 characters of the response string.
-
-                                ReeadInfo.setText(response);
-                            }
-                        }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(FirstActivity.this, "error occurred" , Toast.LENGTH_SHORT).show();
-                        ReeadInfo.setText("Response is get error during request  " );
-
-                    }
-                });
-
-// Add the request to the RequestQueue.
-                queue.add(stringRequest);
-
-*/
-
             }
         });
 
@@ -159,45 +120,6 @@ public class FirstActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //codes of read weather by cityId from Json
                 Toast.makeText(FirstActivity.this, "you clicked on " + weatherName.getText().toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        ObjectAnimator animee =ObjectAnimator.ofFloat(circleSeekBar,"progress",10,70);
-
-       // animee.setInterpolator(new );
-        animee.setDuration(2000);
-        animee.start();
-
-        axel1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                animee.setInterpolator(new OvershootInterpolator());
-                animee.start();
-            }
-        });
-        axel2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                animee.setInterpolator(new AccelerateDecelerateInterpolator());
-                animee.start();
-            }
-        });
-
-
-
-        axel3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                animee.setInterpolator(new BounceInterpolator());
-                animee.start();
-            }
-        });
-        axel4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                animee.setInterpolator(new AnticipateInterpolator());
-                animee.start();
             }
         });
 

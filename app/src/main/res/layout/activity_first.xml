@@ -79,131 +79,311 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/response_title"
         >
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        >
+        <TextView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_weight="1"
+            android:text="00:00"
+            android:textAlignment="center"
 
-            <SeekBar
-                android:id="@+id/seekBar"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="03:00"
+            android:textAlignment="center"
+
+
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="06:00"
+            android:textAlignment="center"
+
+
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="09:00"
+            android:textAlignment="center"
+
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weightSum="4"
+        android:orientation="horizontal"
+        >
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="100dp"
+            app:lottie_rawRes="@raw/day_rain"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+
+            /><com.airbnb.lottie.LottieAnimationView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="100dp"
+        app:lottie_rawRes="@raw/night_mist"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+
+
+        /><com.airbnb.lottie.LottieAnimationView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="100dp"
+        app:lottie_rawRes="@raw/morning_mist"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+
+
+        /><com.airbnb.lottie.LottieAnimationView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="100dp"
+        app:lottie_rawRes="@raw/night_rain"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+
+
+        />
+
+
+
+    </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:progress="60"
-                android:thumb="@drawable/seek_thumb"
-                android:progressDrawable="@drawable/seek_bar"
-
-                />
-
-            <me.tankery.lib.circularseekbar.CircularSeekBar
-                android:id="@+id/seekBarr"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cs_circle_style = "round"
-                app:cs_progress = "0"
-                app:cs_max = "100"
-                app:cs_negative_enabled = "false"
-                app:cs_move_outside_circle = "false"
-                app:cs_maintain_equal_circle = "true"
-                app:cs_use_custom_radii = "false"
-                app:cs_lock_enabled = "true"
-                app:cs_circle_x_radius = "10dp"
-                app:cs_circle_y_radius = "20dp"
-                app:cs_circle_stroke_width = "20dp"
-                app:cs_disable_pointer = "false"
-                app:cs_pointer_stroke_width = "30dp"
-                app:cs_pointer_halo_width = "10dp"
-                app:cs_pointer_halo_border_width = "10dp"
-                app:cs_circle_fill = "#E1FF75"
-                app:cs_circle_color = "#B7E122"
-                app:cs_circle_progress_color = "#98B62E"
-                app:cs_pointer_color = "#5E6A12"
-                app:cs_pointer_halo_color = "#0D7BE8"
-                app:cs_pointer_halo_color_ontouch = "#575E6A12"
-                app:cs_pointer_alpha_ontouch = "5"
-                app:cs_pointer_angle = "0"
-                app:cs_start_angle = "130"
-                app:cs_end_angle = "50"
-                app:cs_disable_progress_glow = "false"
-                app:cs_hide_progress_when_empty = "false"
-
-                />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-
+                android:orientation="horizontal"
+                android:weightSum="4"
                 >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="20°"
+                    android:textAlignment="center"
 
-                <Button
-                    android:id="@+id/axel4"
-                    android:layout_width="150dp"
-                    android:layout_height="43dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/black"
-                    android:text="Anticipate"
-
-                    app:layout_constraintEnd_toStartOf="@id/axel3"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/overshootInterpolator" />
-
-                <Button
-                    android:id="@+id/axel3"
-                    android:layout_width="150dp"
-                    android:layout_height="42dp"
-                    android:background="@drawable/custom_btn"
-                    android:text="Bounce"
-                    app:backgroundTint="@null"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/axel4"
-                    app:layout_constraintTop_toTopOf="@+id/axel4" />
-
-                <Button
-                    android:id="@+id/axel2"
-                    android:layout_width="150dp"
-                    android:layout_height="42dp"
-                    android:background="@color/black"
-
-                    android:text="AccelerateDecelerate"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/overshootInterpolator"
-                    app:layout_constraintTop_toTopOf="@+id/overshootInterpolator" />
-
-                <Button
-                    android:id="@+id/overshootInterpolator"
-                    android:layout_width="150dp"
-                    android:layout_height="42dp"
-                    android:layout_marginTop="50dp"
-                    android:background="@color/black"
-                    android:text="Overshoot"
-                    app:layout_constraintEnd_toStartOf="@id/axel2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="12°"
+                    android:textAlignment="center"
 
 
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <TextView
-                android:id="@+id/read_Info"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="weather information here : "
-                android:layout_marginStart="20dp"
-                android:textIsSelectable="true"
-                android:textAlignment="center"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="5°"
+                    android:textAlignment="center"
 
 
-                />
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="-18°"
+                    android:textAlignment="center"
 
 
-        </LinearLayout>
+                    />
+            </LinearLayout>
+
+<TextView
+    android:id="@+id/read_Info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="request stats:"
+    android:textSize="30dp"
+    android:textAlignment="center"
+    android:layout_marginTop="20dp"
+
+    />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="12:00"
+            android:textAlignment="center"
+
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="15:00"
+            android:textAlignment="center"
+
+
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="18:00"
+            android:textAlignment="center"
+
+
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="21:00"
+            android:textAlignment="center"
+
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/day_rain"
+
+            />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/night_mist"
+
+
+            />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/morning_mist"
+
+
+            />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/night_rain"
+
+
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="20°"
+            android:textAlignment="center"
+
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="12°"
+            android:textAlignment="center"
+
+
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="5°"
+            android:textAlignment="center"
+
+
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="-18°"
+            android:textAlignment="center"
+
+
+            />
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
