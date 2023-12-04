@@ -42,6 +42,9 @@ dependencies {
     implementation ("com.android.volley:volley:1.2.1")
     implementation ("me.tankery.lib:circularSeekBar:1.4.2")
     implementation ("com.airbnb.android:lottie:6.1.0")
+    implementation("com.github.skydoves:balloon:1.6.3")
+
+
 
 
     testImplementation("junit:junit:4.13.2")

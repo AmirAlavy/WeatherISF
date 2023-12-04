@@ -2,4 +2,23 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="VeryDarkBlue">#0A2647</color>
+    <color name="darkBlue">#144272</color>
+    <color name="myBlue">#0A2647</color>
+    <color name="littleLightBlue">#0A2647</color>
+
+
+    <color name="primary">#3F51B5</color>
+    <color name="darkPrimary">#303F9F</color>
+    <color name="lioghtPrimary">#C5CAE9</color>
+    <color name="icons">#FFFFFF</color>
+
+    <color name="accent">#03A9F4</color>
+    <color name="primaryTexct">#212121</color>
+    <color name="secondaryText">#757575</color>
+    <color name="devider">#BDBDBD</color>
+
+
+
 </resources>

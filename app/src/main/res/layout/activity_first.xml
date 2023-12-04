@@ -4,386 +4,606 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstActivity">
-    <Button
-        android:id="@+id/find_city_ID"
-        android:layout_width="150dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/black"
-        android:text="find city ID"
-
-        app:layout_constraintEnd_toStartOf="@id/find_city_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_by_name" />
+    tools:context=".FirstActivity"
+    android:layoutDirection="ltr"
+    android:background="#E1F0FF"
+    >
 
     <Button
         android:id="@+id/find_city_name"
         android:layout_width="150dp"
         android:layout_height="42dp"
-        android:background="@drawable/custom_btn"
+        android:layout_marginTop="20dp"
         android:text="find city name"
+        android:background="@drawable/custom_btn"
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/find_city_ID"
-        app:layout_constraintTop_toTopOf="@+id/find_city_ID" />
-
-    <Button
-        android:id="@+id/weather_by_ID"
-        android:layout_width="150dp"
-        android:layout_height="42dp"
-        android:background="@color/black"
-
-        android:text="weather by ID"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/weather_by_name"
-        app:layout_constraintTop_toTopOf="@+id/weather_by_name" />
-
-    <Button
-        android:id="@+id/weather_by_name"
-        android:layout_width="150dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="50dp"
-        android:background="@color/black"
-        android:text="weather by name"
-        app:layout_constraintEnd_toStartOf="@id/weather_by_ID"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/Input_Text"
+        />
 
     <EditText
         android:id="@+id/Input_Text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
-        android:layout_marginEnd="50dp"
-        android:layout_marginStart="50dp"
         android:hint="   enter ID, city name or weather"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/find_city_name" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/index_of_jsonArray"
+        android:layout_width="97dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="JSON index"
+        android:inputType="number"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/find_city_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Input_Text" />
 
     <TextView
         android:id="@+id/response_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:text="weather info"
         android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Input_Text" />
+        app:layout_constraintTop_toBottomOf="@+id/find_city_name" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="427dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/response_title"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/response_title">
 
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="4"
-        >
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="00:00"
-            android:textAlignment="center"
-
-            />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="03:00"
-            android:textAlignment="center"
-
-
-            />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="06:00"
-            android:textAlignment="center"
-
-
-            />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="09:00"
-            android:textAlignment="center"
-
-
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:weightSum="4"
-        android:orientation="horizontal"
-        >
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="100dp"
-            app:lottie_rawRes="@raw/day_rain"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-
-            /><com.airbnb.lottie.LottieAnimationView
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="100dp"
-        app:lottie_rawRes="@raw/night_mist"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-
-
-        /><com.airbnb.lottie.LottieAnimationView
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="100dp"
-        app:lottie_rawRes="@raw/morning_mist"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-
-
-        /><com.airbnb.lottie.LottieAnimationView
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="100dp"
-        app:lottie_rawRes="@raw/night_rain"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-
-
-        />
-
-
-
-    </LinearLayout>
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:weightSum="4"
-                >
+                android:weightSum="4">
+
                 <TextView
+                    android:id="@+id/time1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="20°"
+                    android:text="@string/time"
                     android:textAlignment="center"
 
                     />
+
                 <TextView
+                    android:id="@+id/time2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="12°"
-                    android:textAlignment="center"
-
-
-                    />
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="5°"
+                    android:text="@string/time"
                     android:textAlignment="center"
 
 
                     />
+
                 <TextView
+                    android:id="@+id/time3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="-18°"
+                    android:text="@string/time"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/time4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/time"
                     android:textAlignment="center"
 
 
                     />
             </LinearLayout>
 
-<TextView
-    android:id="@+id/read_Info"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="request stats:"
-    android:textSize="30dp"
-    android:textAlignment="center"
-    android:layout_marginTop="20dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4">
 
-    />
+                <TextView
+                    android:id="@+id/date1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/date"
+                    android:textAlignment="center"
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:weightSum="4">
+                    />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="12:00"
-            android:textAlignment="center"
-
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="15:00"
-            android:textAlignment="center"
+                <TextView
+                    android:id="@+id/date2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/date"
+                    android:textAlignment="center"
 
 
-            />
+                    />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="18:00"
-            android:textAlignment="center"
-
-
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="21:00"
-            android:textAlignment="center"
+                <TextView
+                    android:id="@+id/date3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/date"
+                    android:textAlignment="center"
 
 
-            />
-    </LinearLayout>
+                    />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:weightSum="4">
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/day_rain"
-
-            />
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/night_mist"
+                <TextView
+                    android:id="@+id/date4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/date"
+                    android:textAlignment="center"
 
 
-            />
+                    />
+            </LinearLayout>
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/morning_mist"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4">
 
-
-            />
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/night_rain"
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie01"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/waiting"
 
 
-            />
+                    />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie02"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/waiting"
 
 
-    </LinearLayout>
+                    />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:weightSum="4">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="20°"
-            android:textAlignment="center"
-
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="12°"
-            android:textAlignment="center"
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie03"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/waiting"
 
 
-            />
+                    />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="5°"
-            android:textAlignment="center"
-
-
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="-18°"
-            android:textAlignment="center"
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie04"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/waiting"
 
 
-            />
-    </LinearLayout>
+                    />
 
 
-</LinearLayout>
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <TextView
+                    android:id="@+id/description1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/description"
+                    android:textAlignment="center"
+
+                    />
+
+                <TextView
+                    android:id="@+id/description2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/description"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/description3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/description"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/description4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/description"
+                    android:textAlignment="center"
+
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <TextView
+                    android:id="@+id/temp1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/temperature"
+                    android:textAlignment="center"
+
+                    />
+
+                <TextView
+                    android:id="@+id/temp2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/temperature"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/temp3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/temperature"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/temp4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/temperature"
+                    android:textAlignment="center"
+
+
+                    />
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/read_Info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="👆نام شهر را در بالا وارد کنید👆"
+                    android:textAlignment="center"
+                    android:textSize="30dp"
+
+                    />
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <TextView
+                    android:id="@+id/time5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/time"
+                    android:textAlignment="center"
+
+                    />
+
+                <TextView
+                    android:id="@+id/time6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/time"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/time7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/time"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/time8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/time"
+                    android:textAlignment="center"
+
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <TextView
+                    android:id="@+id/date5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/date"
+                    android:textAlignment="center"
+
+                    />
+
+                <TextView
+                    android:id="@+id/date6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/date"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/date7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/date"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/date8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/date"
+                    android:textAlignment="center"
+
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie05"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/waiting"
+
+                    />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie06"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/waiting"
+
+
+                    />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie07"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/waiting"
+
+
+                    />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie08"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/waiting"
+
+
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <TextView
+                    android:id="@+id/description5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/description"
+                    android:textAlignment="center"
+
+                    />
+
+                <TextView
+                    android:id="@+id/description6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/description"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/description7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/description"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/description8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/description"
+                    android:textAlignment="center"
+
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <TextView
+                    android:id="@+id/temp5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/temperature"
+                    android:textAlignment="center"
+
+                    />
+
+                <TextView
+                    android:id="@+id/temp6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/temperature"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/temp7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/temperature"
+                    android:textAlignment="center"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/temp8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/temperature"
+                    android:textAlignment="center"
+
+
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
 
 
     </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
